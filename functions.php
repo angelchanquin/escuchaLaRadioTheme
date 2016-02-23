@@ -2,8 +2,9 @@
 
 function theme_css(){
 	wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/bootstrap/css/bootstrap.min.css');
-    wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/styles.css');
     wp_enqueue_style( 'font_awesome', get_stylesheet_directory_uri() . '/fontawesome/css/font-awesome.min.css');
+	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/styles.css');
+	wp_enqueue_style( 'colorbox', get_stylesheet_directory_uri() . '/css/colorbox.css');
     wp_enqueue_style( 'flexslider', get_stylesheet_directory_uri() . '/css/flexslider.css');
     wp_enqueue_style( 'parallaxslider', get_stylesheet_directory_uri() . '/css/parallaxslider.css');
 }

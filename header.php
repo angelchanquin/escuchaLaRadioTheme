@@ -19,14 +19,15 @@
 		      <span class="icon-bar"></span>
 		      <span class="icon-bar"></span>
 		    </button>
-		    <a class="navbar-brand" href="index.html"><img class="brandLogo" src="wp-content\themes\aprendiendoWordPress/img/brand-white.svg"></a>
+		    <a class="navbar-brand" href="index.html"><img class="brandLogo" src="<?php bloginfo('stylesheet_directory'); ?>/img/brand-white.svg"></a>
 		  </div>
 		
 		  <!-- Collect the nav links, forms, and other content for toggling -->
 		  <div class="collapse navbar-collapse navbar-ex1-collapse">
 		    <?php 
 					$args = array(
-							'theme_location' => 'primary'
+						'theme_location' => 'primary',
+						'menu_class' => 'nav navbar-nav navbar-right'
 					);
 				 ?>
 				<?php wp_nav_menu( $args ); ?>

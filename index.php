@@ -1,8 +1,8 @@
 <?php
 
-	get_header();
+    get_header();
 ?>
-		<article class="top-parallax large">
+        <article class="top-parallax large">
             <section class="display">
                 <div class="headerBg index-bg"></div>
             </section>
@@ -175,5 +175,5 @@
             </section>
         </article>
 <?php
-	get_footer();
+    get_footer();
 ?>

@@ -1,4 +1,5 @@
 // Fix for dropdowns on mobile devices
+var templateUrl = constants.template_directory;
 !function ($) { 
         $(function(){
           $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { 
@@ -150,7 +151,7 @@ function portfolio_effects() {
 
 function slider_top() {
     $(".slider-bg").backstretch([
-        "img/big/big-1.jpg", "img/big/big-2.jpg", "img/big/big-4.jpg"
+        templateUrl + "/img/big/big-1.jpg", templateUrl + "/img/big/big-2.jpg", templateUrl + "/img/big/big-4.jpg"
     ], {
         duration: 10000,
         fade: 750
@@ -197,7 +198,7 @@ function collapse_change(collapsed) {
                 $('.navbar .nav > li > a').css('color', '#ffffff');
                 $('.navbar-brand').css('color', '#ffffff');
                 $('.navbar-default').css('background', 'none');
-                $('.brandLogo').attr('src','img/brand-white.svg');
+                $('.brandLogo').attr('src', templateUrl + '/img/brand-white.svg');
             }
         },450);
     } else {
@@ -205,7 +206,7 @@ function collapse_change(collapsed) {
             $('.navbar .nav > li > a').css('color', '#000000');
             $('.navbar-brand').css('color', '#000000');
             $('.navbar-default').css('background', '#ffffff');
-            $('.brandLogo').attr('src','img/brand-color.svg');
+            $('.brandLogo').attr('src', templateUrl + '/img/brand-color.svg');
         }
     }
 }
@@ -221,10 +222,10 @@ function navbar_change() {
         }
         if ($(".main").position().top - $(window).scrollTop() < 50) {
             $('.navbar-default').css('background', '#ffffff');
-            $('.brandLogo').attr('src','img/brand-color.svg');
+            $('.brandLogo').attr('src',templateUrl + '/img/brand-color.svg');
         } else if ($(".main").position().top - $(window).scrollTop() > 50) {
             $('.navbar-default').css('background', 'none');
-            $('.brandLogo').attr('src','img/brand-white.svg');
+            $('.brandLogo').attr('src',templateUrl + '/img/brand-white.svg');
         }
     });
 }
@@ -239,7 +240,7 @@ function map() {
 }
 
 function image_top() {
-    $(".slider-bg").backstretch("img/big/big-5.jpg");
+    $(".slider-bg").backstretch(templateUrl + "/img/big/big-5.jpg");
 }
 
 function slider() {

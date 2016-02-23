@@ -59,7 +59,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><img class="brandLogo" src="<?php bloginfo('stylesheet_directory'); ?>/img/brand-white.svg"></a>
+            <a class="navbar-brand" href="<?php echo home_url(); ?>"><img class="brandLogo" src="<?php bloginfo('stylesheet_directory'); ?>/img/brand-white.svg"></a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->

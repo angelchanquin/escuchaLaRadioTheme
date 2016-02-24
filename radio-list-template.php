@@ -16,13 +16,15 @@
         <section class="container">
             <div class="row">
                 <div class="title">
+                    <h1>
                     <?php
                         if (is_page('radios')){
-                            echo "<h1>$country</h1>";
+                            echo $country;
                         } else {
-                            echo "<h1><?php the_title(); ?> </h1>";
+                            the_title();
                         }
                     ?>
+                    </h1>
                 </div>
             </div>
         </section>

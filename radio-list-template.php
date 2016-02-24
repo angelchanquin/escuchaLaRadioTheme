@@ -46,7 +46,10 @@
                         } else if(is_page('local')) {
                             $radios = $wpdb->get_results("SELECT * FROM stations WHERE countryName = 'Guatemala' ORDER BY name");
                         }
-                        foreach ($radios as $radio) {
+                        if (count($radios) == 0 || $radios == null) {
+                            echo "<h3>No hay radios registradas por el momento.</h3?";
+                        } else {
+                            foreach ($radios as $radio) {
                             ?>
                                 <!-- Radio -->
                                 <div class="content-panel-radio">
@@ -88,8 +91,8 @@
                                     </div>
                                 </div>
                                 <!-- End Radio -->        
-                        <?php } ?>
-                    ?>
+                        <?php } 
+                        }?>
                 </div>
             </div>
         </section>

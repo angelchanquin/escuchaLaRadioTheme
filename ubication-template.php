@@ -56,8 +56,12 @@
                                             }
                                         } else {
                                             $paises = $wpdb->get_results("SELECT DISTINCT countryName FROM stations WHERE continentName = '$continent' ORDER BY countryName");
-                                            foreach ($paises as $pais) {
-                                                echo "<li><a href=\"radios?continent=$continent&country=$pais->countryName\">$pais->countryName</a></li>";
+                                            if (count($paises) == 0 || $paises == null) {
+                                                echo "<h3>No hay países registrados por el momento.</h3?";
+                                            } else {
+                                                foreach ($paises as $pais) {
+                                                    echo "<li><a href=\"radios?continent=$continent&country=$pais->countryName\">$pais->countryName</a></li>";
+                                                }
                                             }
                                         }
                                     ?>

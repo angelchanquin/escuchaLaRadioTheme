@@ -78,7 +78,7 @@
                                                     <button type="button" class="btn radioButton">
                                                         <i class="fa fa-star-o"></i>
                                                     </button>
-                                                <a href="<?php echo home_url(); ?>/radio">
+                                                <a href="<?php echo home_url() . "/radio/?id=" . $radio->sId; ?>">
                                                     <button type="button" class="btn radioButton">
                                                         <b>...</b>
                                                     </button>

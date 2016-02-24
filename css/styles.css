@@ -1588,6 +1588,7 @@ footer .update {
     position: absolute;
     background-color: #fff;
     z-index: 8;
+    width: 100%;
 }
 
 .radioCover h3 {

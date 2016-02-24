@@ -5,6 +5,10 @@
 
     get_header();
 ?>
+
+    <?php
+        $continentes = $wpdb->get_results("SELECT DISTINCT continentName FROM stations ORDER BY continentName");
+    ?>
     <article class="top-parallax">
             <section class="display">
                 <div class="headerBg big blur default-bg"></div>
@@ -29,14 +33,11 @@
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog">
                         <div class="content-panel">
                                 <ul class="list-unstyled">
-                                    <li><a href="#">America</a></li>
-                                    <li><a href="#">Consectetur adipiscing elit</a></li>
-                                    <li><a href="#">Integer molestie lorem at massa</a></li>
-                                    <li><a href="#">Facilisis in pretium nisl aliquet</a></li>
-
-                                    <li><a href="#">Faucibus porta lacus fringilla vel</a></li>
-                                    <li><a href="#">Aenean sit amet erat nunc</a></li>
-                                    <li><a href="#">Eget porttitor lorem</a></li>
+                                    <?php 
+                                        foreach ($continentes as $continente) {
+                                            echo "<li><a href=\"#\">$continente->continentName</a></li>";
+                                        }
+                                    ?>
                                 </ul>
                         </div>
                     </div>

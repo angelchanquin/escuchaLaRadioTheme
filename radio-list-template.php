@@ -43,13 +43,13 @@
                                                 <?php echo "<h3>$radio->name</h3>"; ?>
                                                 <?php echo "<p><h4>$radio->dial $radio->type</h4></p>"; ?>
                                                 <?php 
-                                                    if ($radio->countryName != "") {
+                                                    if ($radio->countryName != "" || $radio->countryName != null) {
                                                         echo "<p><strong>Ubicación</strong> $radio->countryName ";
                                                     } else {
                                                         echo "<p>";
                                                     }
-                                                    if ($radio->genres != "") {
-                                                        echo "- <strong>Generos</strong> $radio->genres"; 
+                                                    if ($radio->genres != "" || $radio->genres != null) {
+                                                        echo "- <strong>Generos</strong> $radio->genres</p>"; 
                                                     } else {
                                                         echo "</p>";
                                                     }

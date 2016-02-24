@@ -5,6 +5,10 @@
 
     get_header();
 ?>
+    <?php
+        $continent = $_GET["continent"];
+        $country = $_GET["country"];
+    ?>
     <article class="top-parallax">
         <section class="display">
             <div class="headerBg big blur default-bg" id="bluredBg"></div>
@@ -12,7 +16,13 @@
         <section class="container">
             <div class="row">
                 <div class="title">
-                    <h1><?php the_title(); ?> </h1>
+                    <?php
+                        if (is_page('radios')){
+                            echo "<h1>$country</h1>";
+                        } else {
+                            echo "<h1><?php the_title(); ?> </h1>";
+                        }
+                    ?>
                 </div>
             </div>
         </section>
@@ -28,9 +38,13 @@
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                     <?php 
-                        $radios = $wpdb->get_results("SELECT * FROM stations WHERE countryName = 'Guatemala' ORDER BY name");
-                        if(is_page('local')) {
-                            foreach ($radios as $radio) {
+                        $radios = array();
+                        if(is_page('radios')){
+                            $radios = $wpdb->get_results("SELECT * FROM stations WHERE countryName = '$country' AND continentName = '$continent' ORDER BY name");
+                        } else if(is_page('local')) {
+                            $radios = $wpdb->get_results("SELECT * FROM stations WHERE countryName = 'Guatemala' ORDER BY name");
+                        }
+                        foreach ($radios as $radio) {
                             ?>
                                 <!-- Radio -->
                                 <div class="content-panel-radio">
@@ -56,12 +70,12 @@
                                                 ?>
                                             </div>
                                             <div class="radioButtonContainer">
-                                                <button type="button" class="btn btn-primary radioButton">
-                                                    <i class="fa fa-play"></i>
-                                                </button>
-                                                <button type="button" class="btn radioButton">
-                                                    <i class="fa fa-star-o"></i>
-                                                </button>
+                                                    <button type="button" class="btn btn-primary radioButton">
+                                                        <i class="fa fa-play"></i>
+                                                    </button>
+                                                    <button type="button" class="btn radioButton">
+                                                        <i class="fa fa-star-o"></i>
+                                                    </button>
                                                 <a href="<?php echo home_url(); ?>/radio">
                                                     <button type="button" class="btn radioButton">
                                                         <b>...</b>
@@ -72,8 +86,7 @@
                                     </div>
                                 </div>
                                 <!-- End Radio -->        
-                            <?php }
-                        }
+                        <?php } ?>
                     ?>
                 </div>
             </div>

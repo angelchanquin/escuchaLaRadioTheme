@@ -40,11 +40,17 @@
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                     <?php 
+                        $total = null;
+                        $post_per_page = 10;
+                        $page = isset( $_GET['cpage'] ) ? abs( (int) $_GET['cpage'] ) : 1;
+                        $offset = ( $page * $post_per_page ) - $post_per_page;
                         $radios = array();
                         if(is_page('radios')){
-                            $radios = $wpdb->get_results("SELECT * FROM stations WHERE countryName = '$country' AND continentName = '$continent' ORDER BY name");
+                            $radios = $wpdb->get_results("SELECT * FROM stations WHERE countryName = '$country' AND continentName = '$continent' ORDER BY name LIMIT ${offset}, ${post_per_page}");
+                            $total = $wpdb->get_var("SELECT COUNT(*) FROM stations WHERE countryName = '$country' AND continentName = '$continent'");
                         } else if(is_page('local')) {
-                            $radios = $wpdb->get_results("SELECT * FROM stations WHERE countryName = 'Guatemala' ORDER BY name");
+                            $radios = $wpdb->get_results("SELECT * FROM stations WHERE countryName = 'Guatemala' ORDER BY name LIMIT ${offset}, ${post_per_page}");
+                            $total = $wpdb->get_var("SELECT COUNT(*) FROM stations WHERE countryName = 'Guatemala'");
                         }
                         if (count($radios) == 0 || $radios == null) {
                             echo "<h3>No hay radios registradas por el momento.</h3>";
@@ -92,6 +98,16 @@
                                 </div>
                                 <!-- End Radio -->        
                         <?php } 
+                        echo '<div class="pagination">';
+                        echo paginate_links( array(
+                        'base' => add_query_arg( 'cpage', '%#%' ),
+                        'format' => '',
+                        'prev_text' => __('Pagina Anterior'),
+                        'next_text' => __('Pagina Siguiente'),
+                        'total' => ceil($total / $post_per_page),
+                        'current' => $page
+                        ));
+                        echo '</div>';
                         }?>
                 </div>
             </div>

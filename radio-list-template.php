@@ -53,7 +53,7 @@
                             $total = $wpdb->get_var("SELECT COUNT(*) FROM stations WHERE countryName = 'Guatemala'");
                         }
                         if (count($radios) == 0 || $radios == null) {
-                            echo "<h3>No hay radios registradas por el momento.</h3?";
+                            echo "<h3>No hay radios registradas por el momento.</h3>";
                         } else {
                             foreach ($radios as $radio) {
                             ?>

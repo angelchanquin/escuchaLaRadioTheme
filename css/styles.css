@@ -1149,6 +1149,7 @@ ul.pagination > li > span:hover {
   .content-panel,
   .content-panel-title {
     margin: 0;
+    border-right: none;
   }
 }
 /* <a> Soft Hover */

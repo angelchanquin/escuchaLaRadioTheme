@@ -16,29 +16,32 @@
                 <div class="register">
                     <div class="register-panel top">
                         <h3>Registrarse</h3>
-                        <form>
-                        <div class="form-group">
-                            <label>Nombre Completo</label>
-                            <input type="text" name="firstname" class="form-control bordered-input">
-                        </div>
-                        <div class="form-group">
-                            <label>Correo Electrónico</label>
-                            <input type="email" name="email" class="form-control bordered-input">
-                        </div>
-                        <div class="form-group">
-                            <label>Nombre de usuario</label>
-                            <input type="text" name="username" class="form-control bordered-input">
-                        </div>
-                        <div class="form-group">
-                            <label>Contraseña</label>
-                            <input type="password" name="password" class="form-control bordered-input">
-                        </div>
-                        <div class="form-group">
-                            <label><input type="checkbox" name="terms"> Estoy de acuerdo con los <a href="#" class="fpass">Terminos y Condiciones</a>.</label>
-                            <input type="submit" value="Sign up" class="btn btn-info pull-right">
-                        </div>
-                            <div class="clearfix"></div>
+                        <form id="my-registration-form" role="form">
+                            <div class="form-group">
+                                <label>Nombre Completo</label>
+                                <input type="text" required id="name" name="name" class="form-control bordered-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Correo Electrónico</label>
+                                <input type="email" required name="email" id="email" class="form-control bordered-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Nombre de usuario</label>
+                                <input type="text" required name="username" id="username" class="form-control bordered-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Contraseña</label>
+                                <input type="password" required name="password" id="password" class="form-control bordered-input">
+                            </div>
+                            <div class="form-group">
+                                <?php wp_nonce_field('vb_new_user','vb_new_user_nonce', true, true ); ?>
+                                <label><input type="checkbox" id="terms" name="terms"> Estoy de acuerdo con los <a href="#" class="fpass">Terminos y Condiciones</a>.</label>
+                                <input type="submit" class="btn btn-info pull-right" id="btn-new-user" value="Register" />
+                            </div>
+                                <div class="clearfix"></div>
                         </form>
+                        <br>
+                        <div class="alert result-message"></div>
                     </div>
                 </div>
             </section>

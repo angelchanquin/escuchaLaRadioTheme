@@ -19,6 +19,14 @@ function theme_js(){
 
     wp_enqueue_script( 'my-script', get_template_directory_uri() . '/js/script.js', array(), '', true );
     wp_localize_script( 'my-script', 'constants', localize_vars() );
+    // Enqueue script
+    wp_register_script('vb_reg_script', get_template_directory_uri() . '/js/ajax-registration.js', array('jquery'), null, true);
+    wp_enqueue_script('vb_reg_script');
+    
+    wp_localize_script( 'vb_reg_script', 'vb_reg_vars', array(
+          'vb_ajax_url' => admin_url( 'admin-ajax.php' ),
+        )
+    );
 }
 
 function localize_vars() {
@@ -26,66 +34,82 @@ function localize_vars() {
         'template_directory' => get_template_directory_uri()
     );
 }
+
+function vb_reg_new_user() {
  
-function register_user(){
-  if(isset($_GET['do']) && $_GET['do'] == 'register'):
-    $errors = array();
-    if(empty($_POST['user'])) 
-       $errors[] = 'Please enter a fullname.<br>';
-    if(empty($_POST['email'])) 
-       $errors[] = 'Please enter a email.<br>';
-    if(empty($_POST['pass'])) 
-       $errors[] = 'Please enter a password.<br>';
-    if(empty($_POST['name'])) 
-       $errors[] = 'Please enter your name.<br>';
-    $user_login = esc_attr($_POST['user']);
-    $user_email = esc_attr($_POST['email']);
-    $user_pass = esc_attr($_POST['pass']);
-    $user_nicename = esc_attr($_POST['name']);
-    $sanitized_user_login = sanitize_user($user_login);
-    $user_email = apply_filters('user_registration_email', $user_email);
+  // Verify nonce
+  if( !isset( $_POST['nonce'] ) || !wp_verify_nonce( $_POST['nonce'], 'vb_new_user' ) )
+    die( 'Ooops, something went wrong, please try again later.' );
+
+  // Post values
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $email    = $_POST['email'];
+  $name     = $_POST['name'];
+  $terms    = $_POST['terms'];
   
-    if(!is_email($user_email)) 
-       $errors[] = 'Invalid e-mail.<br>';
-    elseif(email_exists($user_email)) 
-       $errors[] = 'This email is already registered.<br>';
+  /**
+   * IMPORTANT: You should make server side validation here!
+   *
+   */
+
+  $userdata = array(
+    'user_login' => $username,
+    'user_pass'  => $password,
+    'user_email' => $email,
+    'first_name' => $name,
+  );
+
+  if (empty( $name )) {
+    echo "Ingrese su nombre por favor.";
+    die();
+  }
+  if (empty( $email )) {
+    echo "El email no puede ser vacío.";
+    die();
+  }
+  if ( email_exists( $email ) ) {
+    echo "Este email ya está en uso.";
+    die();
+  }
+  if ( 4 > strlen( $username ) ) {
+    echo "El nombre de usuario debe tener una longitud mayor de 4 caracteres.";
+    die();
+  }
+  if ( username_exists( $username )){
+    echo "Este nombre de usuario ya existe.";
+    die();
+  }
+  if (empty( $password )) {
+    echo "El campo de la contraseña no puede estar vacío.";
+    die();
+  }
+  if ( 5 > strlen( $password ) ) {
+    echo "La contraseña debe ser mayor a 5 caracteres.";
+    die();
+  }
+  if ( $terms == "no" ) {
+    echo "Debes aceptar los terminos y condiciones.";
+    die();
+  }
+
+  $user_id = wp_insert_user( $userdata ) ;
+
+  //On success
+  if( !is_wp_error($user_id) ) {
+    echo '1';
+  } else {
+    echo $user_id->get_error_message();
+  } 
+  die();
   
-    if(empty($sanitized_user_login) || !validate_username($user_login)) 
-       $errors[] = 'Invalid user name.<br>';
-    elseif(username_exists($sanitized_user_login)) 
-       $errors[] = 'User name already exists.<br>';
-  
-    if(empty($errors)):
-      $user_id = wp_create_user($sanitized_user_login, $user_pass, $user_email);
-  
-    if(!$user_id):
-      $errors[] = 'Registration failed';
-    else:
-      update_user_option($user_id, 'default_password_nag', true, true);
-      wp_new_user_notification($user_id, $user_pass);
-      wp_cache_delete ($user_id, 'users');
-      wp_cache_delete ($user_login, 'userlogins');
-      do_action ('user_register', $user_id);
-      $user_data = get_userdata ($user_id);
-      if ($user_data !== false) {
-         wp_clear_auth_cookie();
-         wp_set_auth_cookie ($user_data->ID, true);
-         do_action ('wp_login', $user_data->user_login, $user_data);
-         // Redirect user.
-         wp_redirect ('local');
-         exit();
-       }
-      endif;
-    endif;
-  
-    if(!empty($errors)) 
-      define('REGISTRATION_ERROR', serialize($errors));
-  endif;
 }
+ 
+add_action('wp_ajax_register_user', 'vb_reg_new_user');
+add_action('wp_ajax_nopriv_register_user', 'vb_reg_new_user');
 
 add_action('wp_enqueue_scripts', 'theme_css');
 add_action('wp_enqueue_scripts', 'theme_js');
-add_action('template_redirect', 'register_user');
  
 register_nav_menus(array(
     'primary' => __('Menu Principal'),

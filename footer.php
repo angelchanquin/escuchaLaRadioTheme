@@ -8,11 +8,11 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                         <div class="content-panel" style="text-align: center">
-                            <form class="form-search">
+                            <form class="form-search" action="<?php echo home_url() . "/busqueda" ?>">
                                 <div class="input-group">
-                                    <input type="text" placeholder="Búsca una radio" class="form-control footer-input">
+                                    <input type="text" name="search" placeholder="Búsca una radio" class="form-control footer-input">
                                     <div class="input-group-btn">
-                                        <button type="button" class="btn btn-primary btn-ms" data-toggle="dropdown">Search</button>
+                                        <input type="submit" class="btn btn-primary btn-ms" value="Buscar">
                                     </div><!-- /btn-group -->
                                 </div><!-- /input-group -->
                             </form>

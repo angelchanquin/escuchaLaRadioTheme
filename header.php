@@ -65,11 +65,19 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <?php
-            $args = array(
-                'theme_location' => 'primary',
-                'menu_class' => 'nav navbar-nav navbar-right'
-            );
-            wp_nav_menu( $args );
+            if(!is_user_logged_in()){
+                $args = array(
+                    'theme_location' => 'primary',
+                    'menu_class' => 'nav navbar-nav navbar-right'
+                );
+                wp_nav_menu( $args );
+            } else {
+                $args = array(
+                    'theme_location' => 'logged',
+                    'menu_class' => 'nav navbar-nav navbar-right'
+                );
+                wp_nav_menu( $args );
+            }
             ?>
           </div><!-- /.navbar-collapse -->
         </nav>

@@ -8,6 +8,10 @@
     <?php
         $continent = $_GET["continent"];
         $country = $_GET["country"];
+        if (is_page('local')) {
+            $record = geoip_detect2_get_info_from_ip('::1', array ( 0 => 'en', ), TRUE);
+            $pais = $record->country->name;
+        }
     ?>
     <article class="top-parallax">
         <section class="display">
@@ -20,6 +24,8 @@
                     <?php
                         if (is_page('radios')){
                             echo $country;
+                        } else if (is_page('local')){
+                            echo $pais;
                         } else {
                             the_title();
                         }
@@ -49,11 +55,11 @@
                             $radios = $wpdb->get_results("SELECT * FROM stations WHERE countryName = '$country' AND continentName = '$continent' ORDER BY name LIMIT ${offset}, ${post_per_page}");
                             $total = $wpdb->get_var("SELECT COUNT(*) FROM stations WHERE countryName = '$country' AND continentName = '$continent'");
                         } else if(is_page('local')) {
-                            $radios = $wpdb->get_results("SELECT * FROM stations WHERE countryName = 'Guatemala' ORDER BY name LIMIT ${offset}, ${post_per_page}");
-                            $total = $wpdb->get_var("SELECT COUNT(*) FROM stations WHERE countryName = 'Guatemala'");
+                            $radios = $wpdb->get_results("SELECT * FROM stations WHERE countryName = '$pais' ORDER BY name LIMIT ${offset}, ${post_per_page}");
+                            $total = $wpdb->get_var("SELECT COUNT(*) FROM stations WHERE countryName = '$pais'");
                         }
                         if (count($radios) == 0 || $radios == null) {
-                            echo "<h3>No hay radios registradas por el momento.</h3>";
+                            echo $pais;
                         } else {
                             foreach ($radios as $radio) {
                             ?>

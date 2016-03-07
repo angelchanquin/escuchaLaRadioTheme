@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                     <div class="content-panel-title">
-                        <h2>Radios</h2>
+                        <h2><?php _e('Radios', 'escuchalaradio.com'); ?></h2>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
@@ -57,7 +57,7 @@
                             $total = $wpdb->get_var("SELECT COUNT(*) FROM stations WHERE name LIKE '%{$busqueda}%' OR countryName LIKE '%{$busqueda}%' OR language LIKE '%{$busqueda}%' OR genres LIKE '%{$busqueda}%'");
                         }
                         if (count($radios) == 0 || $radios == null) {
-                            echo "<h3>No hay radios registradas por el momento.</h3>";
+                            echo "<h3>". __('No hay radios registradas por el momento.', 'escuchalaradio.com') ."</h3>";
                         } else {
                             foreach ($radios as $radio) {
                             ?>
@@ -73,12 +73,12 @@
                                                 <?php echo "<p><h4>$radio->dial $radio->type</h4></p>"; ?>
                                                 <?php 
                                                     if ($radio->countryName != "" || $radio->countryName != null) {
-                                                        echo "<p><strong>Ubicación</strong> $radio->countryName ";
+                                                        echo "<p><strong>".__('Ubicación', 'escuchalaradio.com') ."</strong> $radio->countryName ";
                                                     } else {
                                                         echo "<p>";
                                                     }
                                                     if ($radio->genres != "" || $radio->genres != null) {
-                                                        echo "- <strong>Generos</strong> $radio->genres</p>"; 
+                                                        echo "- <strong>". __('Generos', 'escuchalaradio.com') ."</strong> $radio->genres</p>"; 
                                                     } else {
                                                         echo "</p>";
                                                     }
@@ -106,8 +106,8 @@
                         echo paginate_links( array(
                         'base' => add_query_arg( 'cpage', '%#%' ),
                         'format' => '',
-                        'prev_text' => __('Pagina Anterior'),
-                        'next_text' => __('Pagina Siguiente'),
+                        'prev_text' => __('Pagina Anterior', 'escuchalaradio.com'),
+                        'next_text' => __('Pagina Siguiente', 'escuchalaradio.com'),
                         'total' => ceil($total / $post_per_page),
                         'current' => $page
                         ));

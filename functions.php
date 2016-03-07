@@ -1,4 +1,4 @@
-
+<!--?php load_theme_textdomain('escuchalaradio.com'); ?-->
 <?php
 function theme_css(){
     wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/bootstrap/css/bootstrap.min.css');
@@ -29,7 +29,7 @@ function ajax_login_init(){
     wp_localize_script( 'ajax-login-script', 'ajax_login_object', array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
         'redirecturl' => home_url(),
-        'loadingmessage' => __('Sending user info, please wait...')
+        'loadingmessage' => __('Enviando la informacion del usuario, por favor espere...')
     ));
     // Enable the user with no privileges to run ajax_login() in AJAX
     add_action( 'wp_ajax_nopriv_ajaxlogin', 'ajax_login' );

@@ -9,11 +9,11 @@ get_header();
         <section class="container">
             <div class="homeSlider">
                 <img class="img-responsive" src="<?php bloginfo('stylesheet_directory'); ?>/img/brand-white.svg">
-                <p>La radio que quieras, en el momento que quieras.</p>
+                <p><?php _e('La radio que quieras, en el momento que quieras.', 'escuchalaradio.com'); ?></p>
                 <form class="form-search" action="<?php echo home_url() . "/busqueda" ?>">
                     <div class="box">
                         <div class="search-container">
-                            <input type="search" id="search" name="search" placeholder="Búsca una radio" />
+                            <input type="search" id="search" name="search" placeholder="<?php _e('Búsca una radio', 'escuchalaradio.com'); ?>" />
                             <button class="btn-icon" type="submit"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
@@ -26,13 +26,13 @@ get_header();
         <section class="container">
             <div class="row">
                 <div class="content-panel-title-nobar">
-                    <h2>Radios Destacadas</h2>
+                    <h2><?php _e('Radios Destacadas', 'escuchalaradio.com'); ?></h2>
                 </div>
                 <!-- Radio -->
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="boxgrid slideright">
                         <img class="cover" src="<?php bloginfo('stylesheet_directory'); ?>/img/filler/placeholder-rectangle.jpg" alt="" />
-                        <h3>Nombre de la radio</h3>
+                        <h3><?php _e('Nombre de la radio', 'escuchalaradio.com'); ?></h3>
                         <p>Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus.</p>
                         <div class="radioButtonContainer small">
                             <button type="button" class="btn btn-primary radioButton">
@@ -53,7 +53,7 @@ get_header();
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="boxgrid slideright">
                         <img class="cover" src="<?php bloginfo('stylesheet_directory'); ?>/img/filler/placeholder-rectangle.jpg" alt="" />
-                        <h3>Nombre de la radio</h3>
+                        <h3><?php _e('Nombre de la radio', 'escuchalaradio.com'); ?></h3>
                         <p>Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus.</p>
                         <div class="radioButtonContainer small">
                             <button type="button" class="btn btn-primary radioButton">
@@ -63,9 +63,9 @@ get_header();
                                 <i class="fa fa-star-o"></i>
                             </button>
                             <a href="<?php echo home_url(); ?>/radio">
-                                <button type="button" class="btn radioButton">
-                                    <b>...</b>
-                                </button>
+                            <button type="button" class="btn radioButton">
+                                <b>...</b>
+                            </button>
                             </a>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ get_header();
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="boxgrid slideright">
                         <img class="cover" src="<?php bloginfo('stylesheet_directory'); ?>/img/filler/placeholder-rectangle.jpg" alt="" />
-                        <h3>Nombre de la radio</h3>
+                        <h3><?php _e('Nombre de la radio', 'escuchalaradio.com'); ?></h3>
                         <p>Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus.</p>
                         <div class="radioButtonContainer small">
                             <button type="button" class="btn btn-primary radioButton">
@@ -84,9 +84,9 @@ get_header();
                                 <i class="fa fa-star-o"></i>
                             </button>
                             <a href="<?php echo home_url(); ?>/radio">
-                                <button type="button" class="btn radioButton">
-                                    <b>...</b>
-                                </button>
+                            <button type="button" class="btn radioButton">
+                                <b>...</b>
+                            </button>
                             </a>
                         </div>
                     </div>
@@ -95,7 +95,7 @@ get_header();
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="boxgrid slideright">
                         <img class="cover" src="<?php bloginfo('stylesheet_directory'); ?>/img/filler/placeholder-rectangle.jpg" alt="" />
-                        <h3>Nombre de la radio</h3>
+                        <h3><?php _e('Nombre de la radio', 'escuchalaradio.com'); ?></h3>
                         <p>Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus.</p>
                         <div class="radioButtonContainer small">
                             <button type="button" class="btn btn-primary radioButton">
@@ -105,9 +105,9 @@ get_header();
                                 <i class="fa fa-star-o"></i>
                             </button>
                             <a href="<?php echo home_url(); ?>/radio">
-                                <button type="button" class="btn radioButton">
-                                    <b>...</b>
-                                </button>
+                            <button type="button" class="btn radioButton">
+                                <b>...</b>
+                            </button>
                             </a>
                         </div>
                     </div>
@@ -116,7 +116,7 @@ get_header();
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="boxgrid slideright">
                         <img class="cover" src="<?php bloginfo('stylesheet_directory'); ?>/img/filler/placeholder-rectangle.jpg" alt="" />
-                        <h3>Nombre de la radio</h3>
+                        <h3><?php _e('Nombre de la radio', 'escuchalaradio.com'); ?></h3>
                         <p>Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus.</p>
                         <div class="radioButtonContainer small">
                             <button type="button" class="btn btn-primary radioButton">
@@ -126,9 +126,9 @@ get_header();
                                 <i class="fa fa-star-o"></i>
                             </button>
                             <a href="<?php echo home_url(); ?>/radio">
-                                <button type="button" class="btn radioButton">
-                                    <b>...</b>
-                                </button>
+                            <button type="button" class="btn radioButton">
+                                <b>...</b>
+                            </button>
                             </a>
                         </div>
                     </div>
@@ -137,7 +137,7 @@ get_header();
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="boxgrid slideright">
                         <img class="cover" src="<?php bloginfo('stylesheet_directory'); ?>/img/filler/placeholder-rectangle.jpg" alt="" />
-                        <h3>Nombre de la radio</h3>
+                        <h3><?php _e('Nombre de la radio', 'escuchalaradio.com'); ?></h3>
                         <p>Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus.</p>
                         <div class="radioButtonContainer small">
                             <button type="button" class="btn btn-primary radioButton">
@@ -147,18 +147,18 @@ get_header();
                                 <i class="fa fa-star-o"></i>
                             </button>
                             <a href="<?php echo home_url(); ?>/radio">
-                                <button type="button" class="btn radioButton">
-                                    <b>...</b>
-                                </button>
+                            <button type="button" class="btn radioButton">
+                                <b>...</b>
+                            </button>
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>
+                <!-- Radio -->
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                     <div class="content-panel-title">
-                        <h2>We offer?</h2>
+                        <h2>Ofrecemos?</h2>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">

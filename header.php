@@ -20,8 +20,8 @@
                 <img class="img-responsive" src="<?php bloginfo('stylesheet_directory'); ?>/img/filler/placeholder-square.jpg" id="playing_img">
                 <div class="box-left box-fill">
                     <div style="margin:15px 0;">
-                        <h3 id="playing_name">Nombre de la radio</h3>
-                        <p id="playing_desc">Descripción de la radio</p>
+                        <h3 id="playing_name"><?php _e('Nombre de la radio', 'escuchalaradio.com'); ?></h3>
+                        <p id="playing_desc"><?php _e('Descripción de la radio', 'escuchalaradio.com'); ?></p>
                     </div>
                     <div class="show-more">
                         <button id="show-more" type="button" class="btn btn-primary radioButton">

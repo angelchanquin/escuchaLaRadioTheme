@@ -37,9 +37,9 @@
                             <h2>
                             <?php 
                                 if ($continent == null || $continent == "") {
-                                    echo "Continentes";
+                                    _e('Continentes', 'escuchalaradio.com');
                                 } else {
-                                    echo "Paises";
+                                    _e('Paises', 'escuchalaradio.com');
                                 }
                             ?>
                             </h2>
@@ -57,7 +57,7 @@
                                         } else {
                                             $paises = $wpdb->get_results("SELECT DISTINCT countryName FROM stations WHERE continentName = '$continent' ORDER BY countryName");
                                             if (count($paises) == 0 || $paises == null) {
-                                                echo "<h3>No hay países registrados por el momento.</h3>";
+                                                echo "<h3>". __('No hay países registrados por el momento.', 'escuchalaradio.com') ."</h3>";
                                             } else {
                                                 foreach ($paises as $pais) {
                                                     echo "<li><a href=\"radios?continent=$continent&country=$pais->countryName\">$pais->countryName</a></li>";

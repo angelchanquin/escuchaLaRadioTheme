@@ -15,17 +15,17 @@
             <section class="container signContainer">
                 <div class="login">
                     <div class="login-panel top">
-                        <h3>Iniciar Sesión</h3>
+                        <h3><?php _e('Iniciar Sesión', 'escuchalaradio.com'); ?></h3>
                         <form method="post" rol="form" id="login">
                             <div class="form-group">
-                                <input name="username" id="username" type="text" placeholder="Nombre de usuario" class="form-control bordered-input">
+                                <input name="username" id="username" type="text" placeholder="<?php _e('Nombre de usuario', 'escuchalaradio.com'); ?>" class="form-control bordered-input">
                             </div>
                             <div class="form-group">
-                                <input name="password" id="password" type="password" placeholder="Contraseña" class="form-control bordered-input">
+                                <input name="password" id="password" type="password" placeholder="<?php _e('Contraseña', 'escuchalaradio.com'); ?>" class="form-control bordered-input">
                             </div>
                             <div class="pull-left">
                                 <a class="fpass" href="#">
-                                    ¿Olvidaste tu contraseña?
+                                    <?php _e('¿Olvidaste tu contraseña?', 'escuchalaradio.com'); ?>
                                 </a>
                             </div>
                             <div class="pull-right">

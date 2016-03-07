@@ -37,18 +37,18 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="content-panel">
-                        <h3 class="text-center">Información de la Radio</h3>
+                        <h3 class="text-center"><?php _e('Información de la Radio', 'escuchalaradio.com'); ?></h3>
                         <dl>
                         <?php if(!is_null($radio->countryName) || $radio->countryName != ""){ ?>
-                            <dt>Ubicación</dt>
+                            <dt><?php _e('Ubicación', 'escuchalaradio.com'); ?></dt>
                             <dd><?php echo $radio->countryName; ?></dd>
                         <?php } ?>
                         <?php if(!is_null($radio->genres) || $radio->genres != ""){ ?>
-                            <dt>Generos</dt>
+                            <dt><?php _e('Generos', 'escuchalaradio.com'); ?></dt>
                             <dd><?php echo $radio->genres; ?></dd>
                         <?php } ?>
                         <?php if(!is_null($radio->language) || $radio->language != ""){ ?>
-                            <dt>Idioma</dt>
+                            <dt><?php _e('Idioma', 'escuchalaradio.com'); ?></dt>
                             <dd><?php echo $radio->language; ?></dd>
                         <?php } ?>
                         </dl>
@@ -56,8 +56,8 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="content-panel">
-                        <h3 class="text-center">Más información</h3>
-                        <p>No hay mas información.</p>
+                        <h3 class="text-center"><?php _e('Más información', 'escuchalaradio.com'); ?></h3>
+                        <p><?php _e('No hay mas información.', 'escuchalaradio.com'); ?></p>
                     </div>
                 </div>
             </div>

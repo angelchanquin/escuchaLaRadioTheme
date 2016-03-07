@@ -10,7 +10,7 @@
                         <div class="content-panel" style="text-align: center">
                             <form class="form-search" action="<?php echo home_url() . "/busqueda" ?>">
                                 <div class="input-group">
-                                    <input type="text" name="search" placeholder="Búsca una radio" class="form-control footer-input">
+                                    <input type="text" name="search" placeholder="<?php _e('Búsca una radio', 'escuchalaradio.com'); ?>" class="form-control footer-input">
                                     <div class="input-group-btn">
                                         <input type="submit" class="btn btn-primary btn-ms" value="Buscar">
                                     </div><!-- /btn-group -->
@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-11 col-md-12 col-lg-4">
                         <div class="content-panel" style="text-align: center">
-                            <h3 class="footer-title">Siguenos en</h3>
+                            <h3 class="footer-title"><?php _e('Siguenos en', 'escuchalaradio.com'); ?></h3>
                             <ul class="list-inline">
                                 <li><a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/social/facebook.png"></a></li>
                                 <li><a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/social/twitter.png"></a></li>

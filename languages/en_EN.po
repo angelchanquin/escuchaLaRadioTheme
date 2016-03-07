@@ -1,0 +1,159 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: escuchalaradio.com\n"
+"POT-Creation-Date: 2016-03-06 17:40-0600\n"
+"PO-Revision-Date: 2016-03-06 17:40-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: footer.php\n"
+"X-Poedit-SearchPath-1: front-page.php\n"
+"X-Poedit-SearchPath-2: functions.php\n"
+"X-Poedit-SearchPath-3: header.php\n"
+"X-Poedit-SearchPath-4: login-template.php\n"
+"X-Poedit-SearchPath-5: logout-template.php\n"
+"X-Poedit-SearchPath-6: page.php\n"
+"X-Poedit-SearchPath-7: radio-list-template.php\n"
+"X-Poedit-SearchPath-8: register-template.php\n"
+"X-Poedit-SearchPath-9: ubication-template.php\n"
+
+#: footer.php:13 front-page.php:16
+msgid "Búsca una radio"
+msgstr "Search a radio"
+
+#: footer.php:23
+msgid "Siguenos en"
+msgstr "Follow us in "
+
+#: front-page.php:12
+msgid "La radio que quieras, en el momento que quieras."
+msgstr "Radio you want , when you want."
+
+#: front-page.php:29
+msgid "Radios Destacadas"
+msgstr "Featured radios"
+
+#: front-page.php:35 front-page.php:56 front-page.php:77 front-page.php:98
+#: front-page.php:119 front-page.php:140 header.php:23
+msgid "Nombre de la radio"
+msgstr "Name of the radio"
+
+#: functions.php:32
+msgid "Enviando la informacion del usuario, por favor espere..."
+msgstr "Sending the user info, please wait..."
+
+#: functions.php:47
+msgid "Usuario o contraseña incorrectos."
+msgstr "Incorrect username or password. "
+
+#: functions.php:49
+msgid "Inicio de sesión exitoso..."
+msgstr "Log In successful..."
+
+#: functions.php:59
+msgid "Menu Principal"
+msgstr "Menu Principal"
+
+#: functions.php:60
+msgid "Menu Loggeado"
+msgstr "Menu Loggeado"
+
+#: header.php:24
+msgid "Descripción de la radio"
+msgstr "Radio description"
+
+#: login-template.php:18
+msgid "Iniciar Sesión"
+msgstr "Log In"
+
+#: login-template.php:21 register-template.php:29
+msgid "Nombre de usuario"
+msgstr "Username"
+
+#: login-template.php:24 register-template.php:33
+msgid "Contraseña"
+msgstr "Password"
+
+#: login-template.php:28
+msgid "¿Olvidaste tu contraseña?"
+msgstr "Forgot Password?"
+
+#: page.php:40
+msgid "Información de la Radio"
+msgstr "Radio information"
+
+#: page.php:43 radio-list-template.php:76
+msgid "Ubicación"
+msgstr "Location"
+
+#: page.php:47 radio-list-template.php:81
+msgid "Generos"
+msgstr "Genres"
+
+#: page.php:51
+msgid "Idioma"
+msgstr "Language"
+
+#: page.php:59
+msgid "Más información"
+msgstr "More information"
+
+#: page.php:60
+msgid "No hay mas información."
+msgstr "There is no more information."
+
+#: radio-list-template.php:38
+msgid "Radios"
+msgstr "Radios"
+
+#: radio-list-template.php:60
+msgid "No hay radios registradas por el momento."
+msgstr "There is no registered radios for the moment."
+
+#: radio-list-template.php:109
+msgid "Pagina Anterior"
+msgstr "Previous Page"
+
+#: radio-list-template.php:110
+msgid "Pagina Siguiente"
+msgstr "Next Page"
+
+#: register-template.php:18
+msgid "Registrarse"
+msgstr "Sign in"
+
+#: register-template.php:21
+msgid "Nombre Completo"
+msgstr "Full Name"
+
+#: register-template.php:25
+msgid "Correo Electrónico"
+msgstr "Email"
+
+#: register-template.php:38
+msgid "Estoy de acuerdo con los"
+msgstr "I agree with the"
+
+#: register-template.php:38
+msgid "Terminos y Condiciones"
+msgstr "Terms and conditions"
+
+#: ubication-template.php:40
+msgid "Continentes"
+msgstr "Continents"
+
+#: ubication-template.php:42
+msgid "Paises"
+msgstr "Countries"
+
+#: ubication-template.php:60
+msgid "No hay países registrados por el momento."
+msgstr "There is no registered countries for the moment."

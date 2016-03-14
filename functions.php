@@ -17,6 +17,13 @@ function theme_js(){
     wp_enqueue_script( 'cslider', get_template_directory_uri() . '/js/jquery.cslider.js', array(), '', true );
     wp_enqueue_script( 'my-script', get_template_directory_uri() . '/js/script.js', array(), '', true );
     wp_localize_script( 'my-script', 'constants', localize_vars() );
+
+    wp_register_script('vb_reg_script', get_template_directory_uri() . '/js/ajax-registration.js', array('jquery'), null, true);
+    wp_enqueue_script('vb_reg_script');
+    wp_localize_script( 'vb_reg_script', 'vb_reg_vars', array(
+        'vb_ajax_url' => admin_url( 'admin-ajax.php' ),
+        )
+    );
 }
 function localize_vars() {
     return array(
@@ -54,7 +61,6 @@ function ajax_login(){
 
 function vb_reg_new_user()
 {
-
     // Verify nonce
     if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'vb_new_user'))
         die('Ooops, something went wrong, please try again later');

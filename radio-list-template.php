@@ -108,17 +108,25 @@
                                     </div>
                                 </div>
                                 <!-- End Radio -->        
-                        <?php } 
-                        echo '<div class="pagination">';
-                        echo paginate_links( array(
-                        'base' => add_query_arg( 'cpage', '%#%' ),
-                        'format' => '',
-                        'prev_text' => __('Pagina Anterior'),
-                        'next_text' => __('Pagina Siguiente'),
-                        'total' => ceil($total / $post_per_page),
-                        'current' => $page
-                        ));
-                        echo '</div>';
+                        <?php
+                            }
+                            $pages = paginate_links(
+                                array(
+                                    'base' => add_query_arg( 'cpage', '%#%' ),
+                                    'format' => '',
+                                    'prev_text' => __('Pagina Anterior'),
+                                    'next_text' => __('Pagina Siguiente'),
+                                    'total' => ceil($total / $post_per_page),
+                                    'current' => $page,
+                                    'type'  => 'array'
+                            ));
+                            if( is_array( $pages ) ) {
+                                echo '<ul class="pagination">';
+                                foreach ( $pages as $page ) {
+                                    echo "<li>$page</li>";
+                                }
+                                echo '</ul>';
+                            }
                         }?>
                 </div>
             </div>

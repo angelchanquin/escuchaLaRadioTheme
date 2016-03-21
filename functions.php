@@ -20,14 +20,15 @@ function theme_js(){
 
     wp_register_script('vb_reg_script', get_template_directory_uri() . '/js/ajax-registration.js', array('jquery'), null, true);
     wp_enqueue_script('vb_reg_script');
-    wp_localize_script( 'vb_reg_script', 'vb_reg_vars', array(
-        'vb_ajax_url' => admin_url( 'admin-ajax.php' ),
-        )
-    );
+    wp_localize_script( 'vb_reg_script', 'vb_reg_vars', localize_vars() );
+    wp_register_script('vb_fav_script', get_template_directory_uri() . '/js/ajax-favorite.js', array('jquery'), null, true);
+    wp_enqueue_script('vb_fav_script');
+    wp_localize_script('vb_fav_script', 'vb_fav_vars', localize_vars() );
 }
 function localize_vars() {
     return array(
-        'template_directory' => get_template_directory_uri()
+        'template_directory' => get_template_directory_uri(),
+        'vb_ajax_url' => admin_url( 'admin-ajax.php' )
     );
 }
 
@@ -58,9 +59,7 @@ function ajax_login(){
     }
     die();
 }
-
-function vb_reg_new_user()
-{
+function vb_reg_new_user() {
     // Verify nonce
     if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'vb_new_user'))
         die('Ooops, something went wrong, please try again later');
@@ -126,9 +125,39 @@ function vb_reg_new_user()
     }
     die();
 }
+function add_favorite(){
+    global $wpdb;
+    if(is_user_logged_in()){
+        $id_radio = $_POST['radio'];
+        $user = wp_get_current_user();
+        $radio = $wpdb->get_results("SELECT * FROM favorites WHERE sId = '$id_radio' AND user_login = '$user->user_login'");
+        if ($radio == null || count($radio) == 0) {
+            $wpdb->insert(
+                'favorites',
+                array(
+                    'user_login' => $user->user_login,
+                    'sId' => $id_radio
+                ),
+                array(
+                    '%s',
+                    '%d'
+                )
+            );
+            echo '1';
+            die();
+        } else {
+            $wpdb->delete('favorites', array( 'sId' => $id_radio, 'user_login' => $user->user_login), array('%d', '%s'));
+        }
+    } else {
+        echo '-1';
+    }
+}
 
 add_action('wp_ajax_register_user', 'vb_reg_new_user');
 add_action('wp_ajax_nopriv_register_user', 'vb_reg_new_user');
+
+add_action('wp_ajax_add_favorite', 'add_favorite');
+add_action('wp_ajax_nopriv_add_favorite', 'add_favorite');
 
 add_action('wp_enqueue_scripts', 'theme_css');
 add_action('wp_enqueue_scripts', 'theme_js');

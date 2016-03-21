@@ -62,6 +62,11 @@
                             $busqueda = $_GET["search"];
                             $radios = $wpdb->get_results("SELECT * FROM stations WHERE name LIKE '%{$busqueda}%' OR countryName LIKE '%{$busqueda}%' OR language LIKE '%{$busqueda}%' OR genres LIKE '%{$busqueda}%' ORDER BY name LIMIT ${offset}, ${post_per_page}");
                             $total = $wpdb->get_var("SELECT COUNT(*) FROM stations WHERE name LIKE '%{$busqueda}%' OR countryName LIKE '%{$busqueda}%' OR language LIKE '%{$busqueda}%' OR genres LIKE '%{$busqueda}%'");
+                        }else if(is_page('radios-favoritas')) {
+                            $user = wp_get_current_user();
+                            $username = $user->user_login;
+                            $radios = $wpdb->get_results("SELECT * FROM stations INNER JOIN favorites ON stations.sId = favorites.sId WHERE favorites.user_login = '$username' ORDER BY name LIMIT ${offset}, ${post_per_page}");
+                            $total = $wpdb->get_var("SELECT COUNT(*) FROM stations INNER JOIN favorites ON stations.sId = favorites.sId WHERE favorites.user_login = '$username'");
                         }
                         if (count($radios) == 0 || $radios == null) {
                             echo "<h3>No hay radios registradas por el momento.</h3>";
@@ -95,7 +100,7 @@
                                                     <button type="button" class="btn btn-primary radioButton">
                                                         <i class="fa fa-play"></i>
                                                     </button>
-                                                    <button type="button" class="btn radioButton">
+                                                    <button radio-id="<?php echo $radio->sId; ?>" type="button" class="btn radioButton btnFavorite">
                                                         <i class="fa fa-star-o"></i>
                                                     </button>
                                                 <a href="<?php echo home_url() . "/radio/?id=" . $radio->sId; ?>">

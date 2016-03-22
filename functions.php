@@ -147,9 +147,12 @@ function add_favorite(){
             die();
         } else {
             $wpdb->delete('favorites', array( 'sId' => $id_radio, 'user_login' => $user->user_login), array('%d', '%s'));
+            echo '2';
+            die();
         }
     } else {
         echo '-1';
+        die();
     }
 }
 

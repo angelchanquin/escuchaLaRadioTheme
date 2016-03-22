@@ -23,6 +23,9 @@ jQuery(document).ready(function($) {
          * (from localize_script)
          */
         var ajax_url = vb_fav_vars.vb_ajax_url;
+        var agregado = false;
+        var eliminado = false;
+        var button = $(this);
 
         // Data to send
         var data = {
@@ -32,8 +35,12 @@ jQuery(document).ready(function($) {
         // Do AJAX request
         $.post( ajax_url, data, function(response) {
             // If we have response
-            if( response == '-10') {
-                window.location.assign('/iniciar');
+            if( response == '-1') {
+                window.location.assign('/wordpress/iniciar');
+            } else if ( response == '1') {
+                button.addClass('btn-primary');
+            } else if ( response == '2' ) {
+                button.removeClass('btn-primary');
             }
         });
     });

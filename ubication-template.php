@@ -52,7 +52,7 @@
                                         if ($continent == null || $continent == "") {
                                             $continentes = $wpdb->get_results("SELECT DISTINCT continentName FROM stations ORDER BY continentName");
                                             foreach ($continentes as $continente) {
-                                                echo "<li><a href=\"por-ubicacion?continent=$continente->continentName\">$continente->continentName</a></li>";
+                                                echo "<li><a href=\"?continent=$continente->continentName\">$continente->continentName</a></li>";
                                             }
                                         } else {
                                             $paises = $wpdb->get_results("SELECT DISTINCT countryName FROM stations WHERE continentName = '$continent' ORDER BY countryName");

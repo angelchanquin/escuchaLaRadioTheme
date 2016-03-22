@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
         $.post( ajax_url, data, function(response) {
             // If we have response
             if( response == '-1') {
-                window.location.assign('/wordpress/iniciar');
+                window.location.assign('/login');
             } else if ( response == '1') {
                 button.addClass('btn-primary');
             } else if ( response == '2' ) {

@@ -4,6 +4,6 @@
  */
 
 	wp_logout();
-	wp_redirect(home_url('/iniciar'));
+	wp_redirect(home_url('/login'));
 
 ?>

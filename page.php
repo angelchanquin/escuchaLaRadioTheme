@@ -1,6 +1,9 @@
 <?php
 
     get_header();
+    $radioId = $_GET['id'];
+    $results = $wpdb->get_results("SELECT * FROM stations WHERE sId = '$radioId'");
+    $radio = $results[0];
 ?>
     <article class="top-parallax large">
         <section class="display">
@@ -10,8 +13,8 @@
         <section class="container">
             <div class="flexslider">
                 <img class="img-responsive sliderimg" id="headImg" src="<?php bloginfo('stylesheet_directory'); ?>/img/filler/placeholder-square.jpg" alt="radio"/>
-                <h2>Nombre de la radio</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit sem ut pretium egestas. Curabitur sed odio sit amet eros sagittis viverra eu vel ante.</p>
+                <h2><?php echo $radio->name; ?></h2>
+                <p><?php echo $radio->dial . " " . $radio->type ?></p>
             </div>
         </section>
         <section class="top"></section>
@@ -36,19 +39,25 @@
                     <div class="content-panel">
                         <h3 class="text-center">Información de la Radio</h3>
                         <dl>
+                        <?php if(!is_null($radio->countryName) || $radio->countryName != ""){ ?>
                             <dt>Ubicación</dt>
-                            <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</dd>
+                            <dd><?php echo $radio->countryName; ?></dd>
+                        <?php } ?>
+                        <?php if(!is_null($radio->genres) || $radio->genres != ""){ ?>
                             <dt>Generos</dt>
-                            <dd>Vestibulum id, ligula porta, felis euismod.</dd>
+                            <dd><?php echo $radio->genres; ?></dd>
+                        <?php } ?>
+                        <?php if(!is_null($radio->language) || $radio->language != ""){ ?>
                             <dt>Idioma</dt>
-                            <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</dd>
+                            <dd><?php echo $radio->language; ?></dd>
+                        <?php } ?>
                         </dl>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="content-panel">
                         <h3 class="text-center">Más información</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit sem ut pretium egestas. Curabitur sed odio sit amet eros sagittis viverra eu vel ante. Duis at nisi libero. Nam scelerisque nunc orci, eu placerat dui egestas quis. Etiam condimentum eros at nisi efficitur, eu auctor risus facilisis. Etiam finibus lobortis nibh laoreet viverra.</p>
+                        <p>No hay mas información.</p>
                     </div>
                 </div>
             </div>

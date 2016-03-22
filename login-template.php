@@ -16,22 +16,25 @@
                 <div class="login">
                     <div class="login-panel top">
                         <h3>Iniciar Sesión</h3>
-                        <div class="form-group">
-                            <input type="text" placeholder="Nombre de usuario" class="form-control bordered-input">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Contraseña" class="form-control bordered-input">
-                        </div>
-                        <div class="pull-left">
-                            <a class="fpass" href="#">
-                            ¿Olvidaste tu contraseña?
-                            </a>
-                        </div>
-                        <div class="pull-right">
-                            <a href="#" class="btn blue">
-                            Submit
-                            </a>
-                        </div>
+                        <form method="post" rol="form" id="login">
+                            <div class="form-group">
+                                <input name="username" id="username" type="text" placeholder="Nombre de usuario" class="form-control bordered-input">
+                            </div>
+                            <div class="form-group">
+                                <input name="password" id="password" type="password" placeholder="Contraseña" class="form-control bordered-input">
+                            </div>
+                            <div class="pull-left">
+                                <a class="fpass" href="#">
+                                    ¿Olvidaste tu contraseña?
+                                </a>
+                            </div>
+                            <div class="pull-right">
+                                <?php wp_nonce_field( 'ajax-login-nonce', 'security' ); ?>
+                                <input class="btn blue" type="submit"  name="submit" id="submit" value="Log in" />
+                            </div>
+                        </form>
+                        <br><br><br>
+                        <div class="alert result-message"></div>
                     </div>
                 </div>
             </section>

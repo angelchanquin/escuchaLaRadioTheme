@@ -10,11 +10,11 @@ get_header();
             <div class="homeSlider">
                 <img class="img-responsive" src="<?php bloginfo('stylesheet_directory'); ?>/img/brand-white.svg">
                 <p>La radio que quieras, en el momento que quieras.</p>
-                <form class="form-search">
+                <form class="form-search" action="<?php echo home_url() . "/busqueda" ?>">
                     <div class="box">
                         <div class="search-container">
-                            <input type="search" id="search" placeholder="Búsca una radio" />
-                            <button class="btn-icon"><i class="fa fa-search"></i></button>
+                            <input type="search" id="search" name="search" placeholder="Búsca una radio" />
+                            <button class="btn-icon" type="submit"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
                 </form>
